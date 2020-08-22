@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Settings">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.7"
+        android:src="#e6edef" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="199dp"
+        tools:layout_editor_absoluteY="370dp"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#00E6EDEF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/mechanect"
+                    android:scaleType="centerInside"
+                    android:paddingHorizontal="40dp"
+                    android:paddingVertical="20dp"
+                    android:layout_marginTop="35dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.8"
+                    android:text="@string/app_name"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/comforta_bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"
+                    android:text="@string/app_version"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:textSize="17sp"
+                    android:fontFamily="@font/comforta_bold"
+                    android:layout_marginBottom="10dp"/>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/birthdays_btn"
+            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Birthdays Today"
+            android:fontFamily="@font/comforta_bold"
+            android:layout_marginHorizontal="85dp"
+            android:background="@drawable/rounded_rectangle"
+            android:textColor="#fff"
+            android:gravity="center"
+            />
+
+        <Button
+            android:id="@+id/questions_btn"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Question Archive"
+            android:fontFamily="@font/comforta_bold"
+            android:layout_marginHorizontal="85dp"
+            android:background="@drawable/rounded_rectangle"
+            android:textColor="#fff"
+            android:gravity="center"
+            />
+        <Button
+            android:id="@+id/bglist_btn"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Blood Group LIST"
+            android:fontFamily="@font/comforta_bold"
+            android:layout_marginHorizontal="85dp"
+            android:background="@drawable/rounded_rectangle"
+            android:textColor="#fff"
+            android:gravity="center"
+            />
+
+
+
+        <Button
+            android:id="@+id/req_for_change_btn"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Request for change"
+            android:fontFamily="@font/comforta_bold"
+            android:layout_marginHorizontal="85dp"
+            android:background="@drawable/rounded_rectangle"
+            android:textColor="#fff"
+            android:gravity="center"
+            />
+
+        <Button
+            android:id="@+id/contributors_btn"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contributors"
+            android:fontFamily="@font/comforta_bold"
+            android:layout_marginHorizontal="85dp"
+            android:background="@drawable/rounded_rectangle"
+            android:textColor="#fff"
+            android:gravity="center"
+            />
+
+        <Button
+            android:id="@+id/updates_btn"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:fontFamily="@font/comforta_bold"
+            android:layout_marginHorizontal="85dp"
+            android:background="@drawable/rounded_rectangle"
+            android:textColor="#fff"
+            android:gravity="center"
+            />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
