@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/teachers"
+        android:enabled="true"
+        android:icon="@drawable/ic_android_black_24dp"
+        android:title="Teachers"/>
+    <item
+        android:id="@+id/staffs"
+        android:enabled="true"
+        android:icon="@drawable/ic_android_black_24dp"
+        android:title="Staffs"/>
+</menu>

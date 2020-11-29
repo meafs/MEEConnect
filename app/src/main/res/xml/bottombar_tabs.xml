@@ -1,0 +1,13 @@
+<tabs>
+    <tab
+        id="@+id/tab_teachers"
+        icon="@drawable/ic_android_black_24dp"
+        title="Teachers"
+        barColorWhenSelected="#00FF0A"/>
+    <tab
+        id="@+id/tab_staffs"
+        icon="@drawable/ic_android_black_24dp"
+        title="Staffs"
+        barColorWhenSelected="#FFFFFF"/>
+
+</tabs>

@@ -21,6 +21,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Faculty> teachers = new ArrayList<>();
     ArrayList<Faculty> staffs = new ArrayList<>();
     private SwipeRefreshLayout refreshLayout;
+    private Button testButton;
 
 
     @Override
@@ -74,6 +76,18 @@ public class MainActivity extends AppCompatActivity {
         search = findViewById(R.id.home_search);
         constraintLayout = findViewById(R.id.parent);
         refreshLayout = findViewById(R.id.rehreshome);
+        testButton =  findViewById(R.id.testButton);
+
+
+        
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, OfficialActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.left_to_right_exit, R.anim.left_to_right);
+            }
+        });
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

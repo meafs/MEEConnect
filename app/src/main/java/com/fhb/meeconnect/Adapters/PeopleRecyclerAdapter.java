@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,9 @@ import static androidx.core.app.ActivityCompat.requestPermissions;
  * Created by Faisal Haque Bappy on 30-Aug-19.
  */
 public class PeopleRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+
+    public static final String TAG = "PeopleRA";
 
     private ArrayList<Student> students;
     private ArrayList<Faculty> faculties;
@@ -109,6 +113,9 @@ public class PeopleRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         vhItem.phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                Log.d(TAG, "onClick: Phone");
                 Intent intent = new Intent(Intent.ACTION_CALL);
                 intent.setData(Uri.parse("tel:" + finalPhone));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -176,6 +183,41 @@ public class PeopleRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             this.phone = itemView.findViewById(R.id.people_phone);
             this.photo = itemView.findViewById(R.id.people_photo);
             this.card = itemView.findViewById(R.id.people_card);
+        }
+    }
+
+
+
+    public void SwipeToCall(int position)
+    {
+
+
+        String phone = faculties.get(position).getPhone();
+
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:" + phone ));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions((AppCompatActivity) context,
+                        new String[]{Manifest.permission.CALL_PHONE}, 1000);
+            }
+        }
+        context.startActivity(intent);
+
+    }
+
+
+
+    public void SwipeToMessage(int position)
+    {
+
+        String messengerId = faculties.get(position).getMessengerID();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(messengerId.trim()));
+        if(messengerId.trim().toLowerCase().startsWith("http")) {
+            context.startActivity(intent);
+        }else{
+            context.startActivity(Intent.createChooser(intent, "Choose browser"));
         }
     }
 }
