@@ -21,23 +21,46 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.OfficialActivity"></activity>
-        <activity android:name=".Activities.Birthday" />
-        <activity android:name=".Activities.Contributors" />
+        <activity android:name=".Activities.OfficialActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            ></activity>
+        <activity android:name=".Activities.Birthday"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Contributors"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activities.SearchDetails"
-            android:theme="@style/AppTheme.Fullscreen" />
-        <activity android:name=".Activities.Search" />
-        <activity android:name=".Activities.Students" />
-        <activity android:name=".Activities.Settings" />
+            android:theme="@style/AppTheme.Fullscreen"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Search"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Students"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Settings"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activities.FacultySlider"
-            android:theme="@style/AppTheme.Fullscreen" />
+            android:theme="@style/AppTheme.Fullscreen"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activities.StudentSlider"
-            android:theme="@style/AppTheme.Fullscreen" />
-        <activity android:name=".Activities.PeopleList" />
-        <activity android:name=".Activities.MainActivity">
+            android:theme="@style/AppTheme.Fullscreen"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.PeopleList"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

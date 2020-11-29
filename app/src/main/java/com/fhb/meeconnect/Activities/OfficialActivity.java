@@ -20,7 +20,6 @@ public class OfficialActivity extends AppCompatActivity {
 
 
     public static String TAG = "OfficialActivity";
-    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
