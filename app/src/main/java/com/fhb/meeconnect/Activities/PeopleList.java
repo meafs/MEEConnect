@@ -241,9 +241,10 @@ public class PeopleList extends AppCompatActivity {
 
 
                 new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-                        .addSwipeLeftBackgroundColor(ContextCompat.getColor(context,R.color.green))
-                        .addSwipeRightBackgroundColor(ContextCompat.getColor(context,R.color.red))
-                        .addActionIcon(R.drawable.ic_android_black_24dp)
+                        .addSwipeLeftBackgroundColor(ContextCompat.getColor(context, R.color.green))
+                        .addSwipeRightBackgroundColor(ContextCompat.getColor(context, R.color.red))
+                        .addSwipeRightActionIcon(R.drawable.ic_sms_black_24dp)
+                        .addSwipeLeftActionIcon(R.drawable.ic_phone_black_24dp)
                         .create()
                         .decorate();
 
@@ -261,5 +262,6 @@ public class PeopleList extends AppCompatActivity {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
+
 
 }

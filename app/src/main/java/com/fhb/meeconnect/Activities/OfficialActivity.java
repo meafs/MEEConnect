@@ -11,7 +11,6 @@ import android.os.Bundle;
 
 import com.fhb.meeconnect.Fragmnets.PeopleFragment;
 import com.fhb.meeconnect.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.BottomBarTab;
 import com.roughike.bottombar.OnTabSelectListener;
