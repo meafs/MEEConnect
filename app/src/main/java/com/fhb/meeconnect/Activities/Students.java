@@ -3,10 +3,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -15,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.fhb.meeconnect.Adapters.StudentRecyclerAdapter;
-import com.fhb.meeconnect.DataElements.Catagory;
+import com.fhb.meeconnect.DataElements.Category;
 import com.fhb.meeconnect.DataElements.Student;
 import com.fhb.meeconnect.R;
 import com.google.firebase.database.DataSnapshot;
@@ -37,7 +35,7 @@ public class Students extends AppCompatActivity {
         private RecyclerView recyclerView;
         private SwipeRefreshLayout refreshLayout;
         private DatabaseReference myRef;
-        public static ArrayList<Catagory> catagories;
+        public static ArrayList<Category> catagories;
         private LinearLayoutManager layoutManager;
         private Context context;
 
@@ -138,7 +136,7 @@ public class Students extends AppCompatActivity {
                         }
                     }
 
-                    Catagory userCatagory = new Catagory(catagoryName, coverImageURL, students);
+                    Category userCatagory = new Category(catagoryName, coverImageURL, students);
 
 
                     catagories.add(userCatagory);

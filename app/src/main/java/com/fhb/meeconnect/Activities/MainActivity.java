@@ -27,7 +27,7 @@ import android.widget.ImageView;
 
 import com.fhb.meeconnect.AlarmReceiver;
 import com.fhb.meeconnect.BuildConfig;
-import com.fhb.meeconnect.DataElements.Catagory;
+import com.fhb.meeconnect.DataElements.Category;
 import com.fhb.meeconnect.DataElements.Faculty;
 import com.fhb.meeconnect.R;
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
 
 
-    public static ArrayList<Catagory> catagories;
+    public static ArrayList<Category> catagories;
     private DatabaseReference myRef;
     private Context context;
     private ImageView settings, search, cover_teacher, cover_student, cover_staff;
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Settings.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.left_to_right_exit, R.anim.left_to_right);
+                overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
             }
         });
 

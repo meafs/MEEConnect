@@ -109,6 +109,9 @@ public class PeopleRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         vhItem.name.setText(name);
         vhItem.subTitle.setText(subtitle);
 
+
+
+        /*
         final String finalPhone = phone;
         vhItem.phone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +131,8 @@ public class PeopleRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             }
         });
 
+
+         */
 
         final String finalPhotoURL = photoURL;
         Picasso.get()
@@ -180,7 +185,7 @@ public class PeopleRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             super(itemView);
             this.name = itemView.findViewById(R.id.people_name);
             this.subTitle = itemView.findViewById(R.id.people_subtitle);
-            this.phone = itemView.findViewById(R.id.people_phone);
+           // this.phone = itemView.findViewById(R.id.people_phone);
             this.photo = itemView.findViewById(R.id.people_photo);
             this.card = itemView.findViewById(R.id.people_card);
         }

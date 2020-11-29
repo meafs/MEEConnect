@@ -1,10 +1,12 @@
 package com.fhb.meeconnect.Activities;
 
 import androidx.annotation.IdRes;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.fhb.meeconnect.Fragmnets.PeopleFragment;
@@ -27,6 +29,12 @@ public class OfficialActivity extends AppCompatActivity {
 
         BottomBar bottomBar = findViewById(R.id.bottom_navigation);
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Title").setMessage("Hi there");
+
+        AlertDialog alert = builder.create();
+        alert.show();
+
 
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
@@ -39,7 +47,7 @@ public class OfficialActivity extends AppCompatActivity {
 
 
                     case R.id.tab_staffs:
-                        openFragment(PeopleFragment.newInstance("Staff","Two"));
+                        openFragment(PeopleFragment.newInstance("Staff",""));
                         break;
                 }
             }
@@ -65,5 +73,15 @@ public class OfficialActivity extends AppCompatActivity {
         transaction.replace(R.id.container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent(OfficialActivity.this, MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.left_to_right_exit, R.anim.left_to_right);
     }
 }

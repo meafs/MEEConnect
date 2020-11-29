@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.fhb.meeconnect.BuildConfig;
@@ -27,6 +29,7 @@ import es.dmoral.toasty.Toasty;
 public class Settings extends AppCompatActivity {
 
     private Button contributors, reqForChange, birthdays, updates, questions, bloodg;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,18 @@ public class Settings extends AppCompatActivity {
         updates = findViewById(R.id.updates_btn);
         questions = findViewById(R.id.questions_btn);
         bloodg = findViewById(R.id.bglist_btn);
+
+        imageView = findViewById(R.id.goto_home);
+
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Settings.this, MainActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
+            }
+        });
 
         contributors.setOnClickListener(new View.OnClickListener() {
             @Override

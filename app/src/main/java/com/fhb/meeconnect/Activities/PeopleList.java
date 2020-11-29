@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fhb.meeconnect.Adapters.PeopleRecyclerAdapter;
-import com.fhb.meeconnect.DataElements.Catagory;
+import com.fhb.meeconnect.DataElements.Category;
 import com.fhb.meeconnect.DataElements.Faculty;
 import com.fhb.meeconnect.R;
 import com.fhb.meeconnect.DataElements.Student;
@@ -40,7 +40,7 @@ public class PeopleList extends AppCompatActivity {
     private String catagoryName;
     public static ArrayList<Student> students;
     public static ArrayList<Faculty> faculties;
-    public ArrayList<Catagory> catagories;
+    public ArrayList<Category> catagories;
     private int catagoryIndex;
     private DatabaseReference myRef;
     private Context context;
@@ -138,6 +138,7 @@ public class PeopleList extends AppCompatActivity {
                     }
                     PeopleRecyclerAdapter adapter = new PeopleRecyclerAdapter(catagoryIndex, catagoryName, null, tempFaculty, context);
                     recyclerView.setAdapter(adapter);
+                    InitItemTouch(adapter, "Teacher");
 
                 }else{
                     ArrayList<Student> tempStudent = new ArrayList<>();
@@ -215,14 +216,14 @@ public class PeopleList extends AppCompatActivity {
                 if(direction == ItemTouchHelper.LEFT)
                 {
                     adapter.SwipeToCall(TeacherOrStudent, position);
-                    recyclerView.setAdapter(adapter);
+                    adapter.notifyItemChanged(position);
 
                 }
 
                 else if(direction == ItemTouchHelper.RIGHT)
                 {
                     adapter.SwipeToMessage(TeacherOrStudent, position);
-                    recyclerView.setAdapter(adapter);
+                    adapter.notifyItemChanged(position);
                 }
 
 

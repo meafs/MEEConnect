@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-import com.fhb.meeconnect.DataElements.Catagory;
+import com.fhb.meeconnect.DataElements.Category;
 import com.fhb.meeconnect.Activities.PeopleList;
 import com.fhb.meeconnect.R;
 import com.squareup.picasso.Callback;
@@ -25,10 +25,10 @@ public class StudentRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
 
-    ArrayList<Catagory> list;
+    ArrayList<Category> list;
     Context context;
 
-    public StudentRecyclerAdapter(Context context, ArrayList<Catagory> list){
+    public StudentRecyclerAdapter(Context context, ArrayList<Category> list){
         this.list = list;
         this.context = context;
     }

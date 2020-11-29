@@ -19,9 +19,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.fhb.meeconnect.Activities.MainActivity;
 import com.fhb.meeconnect.Adapters.PeopleRecyclerAdapter;
-import com.fhb.meeconnect.DataElements.Catagory;
+import com.fhb.meeconnect.DataElements.Category;
 import com.fhb.meeconnect.DataElements.Faculty;
 import com.fhb.meeconnect.DataElements.Student;
 import com.fhb.meeconnect.R;
@@ -45,7 +44,7 @@ public class PeopleFragment extends Fragment {
     private String catagoryName;
     public static ArrayList<Student> students;
     public static ArrayList<Faculty> faculties;
-    public ArrayList<Catagory> catagories;
+    public ArrayList<Category> catagories;
     private int catagoryIndex;
     private DatabaseReference myRef;
     private Context ctx;
@@ -232,14 +231,14 @@ public class PeopleFragment extends Fragment {
                 if(direction == ItemTouchHelper.LEFT)
                 {
                     adapter.SwipeToCall(TeacherOrStudent, position);
-                    recyclerView.setAdapter(adapter);
+                    adapter.notifyItemChanged(position);
 
                 }
 
                 else if(direction == ItemTouchHelper.RIGHT)
                 {
                     adapter.SwipeToMessage(TeacherOrStudent, position);
-                    recyclerView.setAdapter(adapter);
+                    adapter.notifyItemChanged(position);
                 }
 
 
@@ -257,9 +256,10 @@ public class PeopleFragment extends Fragment {
 
 
                 new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-                        .addSwipeLeftBackgroundColor(ContextCompat.getColor(ctx,R.color.green))
-                        .addSwipeRightBackgroundColor(ContextCompat.getColor(ctx,R.color.red))
-                        .addActionIcon(R.drawable.ic_android_black_24dp)
+                        .addSwipeLeftBackgroundColor(ContextCompat.getColor(ctx, R.color.green))
+                        .addSwipeRightBackgroundColor(ContextCompat.getColor(ctx, R.color.red))
+                        .addSwipeRightActionIcon(R.drawable.ic_sms_black_24dp)
+                        .addSwipeLeftActionIcon(R.drawable.ic_phone_black_24dp)
                         .create()
                         .decorate();
 
@@ -277,6 +277,9 @@ public class PeopleFragment extends Fragment {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
+
+
+
 
 
 
