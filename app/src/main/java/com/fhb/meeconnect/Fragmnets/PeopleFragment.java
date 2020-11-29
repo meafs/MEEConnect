@@ -165,68 +165,9 @@ public class PeopleFragment extends Fragment {
                     PeopleRecyclerAdapter adapter = new PeopleRecyclerAdapter(catagoryIndex, catagoryName, null, tempFaculty, ctx);
                     recyclerView.setAdapter(adapter);
 
-                    ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
-                        @Override
-                        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                            return false;
-                        }
 
-                        @Override
-                        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                    InitItemTouch(adapter,"Teacher");
 
-                            int position = viewHolder.getAdapterPosition();
-
-
-
-                            if(direction == ItemTouchHelper.LEFT)
-                            {
-                                adapter.SwipeToCall(position);
-
-                            }
-
-                            else if(direction == ItemTouchHelper.RIGHT)
-                            {
-                                adapter.SwipeToMessage(position);
-                            }
-
-
-
-
-                            // Take action for the swiped item
-                            Toast.makeText(ctx, "Hi", Toast.LENGTH_SHORT).show();
-                        }
-
-
-                        @Override
-                        public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-
-
-
-
-                            new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX/3, dY/3, actionState, isCurrentlyActive)
-                                    .addSwipeLeftBackgroundColor(ContextCompat.getColor(ctx,R.color.bb_darkBackgroundColor))
-
-                                    .addSwipeRightBackgroundColor(ContextCompat.getColor(ctx,R.color.colorPrimary))
-                                    //.addBackgroundColor(ContextCompat.getColor(ctx, R.color.colorPrimary))
-
-                                    .addSwipeRightLabel("Message")
-                                    .addActionIcon(R.drawable.ic_android_black_24dp)
-                                    .create()
-                                    .decorate();
-
-
-
-
-
-                            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-
-
-
-                        }
-                    };
-
-                    ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
-                    itemTouchHelper.attachToRecyclerView(recyclerView);
 
 
 
@@ -270,6 +211,71 @@ public class PeopleFragment extends Fragment {
 
             }
         });
+    }
+
+
+    public void InitItemTouch(PeopleRecyclerAdapter adapter, String TeacherOrStudent)
+    {
+        ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+
+                int position = viewHolder.getAdapterPosition();
+
+
+
+                if(direction == ItemTouchHelper.LEFT)
+                {
+                    adapter.SwipeToCall(TeacherOrStudent, position);
+                    recyclerView.setAdapter(adapter);
+
+                }
+
+                else if(direction == ItemTouchHelper.RIGHT)
+                {
+                    adapter.SwipeToMessage(TeacherOrStudent, position);
+                    recyclerView.setAdapter(adapter);
+                }
+
+
+
+
+                // Take action for the swiped item
+                Toast.makeText(ctx, "Hi", Toast.LENGTH_SHORT).show();
+            }
+
+
+            @Override
+            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+
+
+
+
+                new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                        .addSwipeLeftBackgroundColor(ContextCompat.getColor(ctx,R.color.green))
+                        .addSwipeRightBackgroundColor(ContextCompat.getColor(ctx,R.color.red))
+                        .addActionIcon(R.drawable.ic_android_black_24dp)
+                        .create()
+                        .decorate();
+
+
+
+
+
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+
+
+
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
 

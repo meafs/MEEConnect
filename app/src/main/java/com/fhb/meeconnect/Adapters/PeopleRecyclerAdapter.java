@@ -188,12 +188,20 @@ public class PeopleRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
 
 
-    public void SwipeToCall(int position)
+    public void SwipeToCall(String TeacherOrStudent, int position)
     {
 
 
-        String phone = faculties.get(position).getPhone();
+        String phone;
+        if (TeacherOrStudent.equals("Teacher"))
+        {
+            phone = faculties.get(position).getPhone();
 
+        }
+
+        else {
+            phone = students.get(position).getPhone();
+        }
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + phone ));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -204,14 +212,23 @@ public class PeopleRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
         context.startActivity(intent);
 
+
     }
 
 
 
-    public void SwipeToMessage(int position)
+    public void SwipeToMessage(String TeacherOrStudent, int position)
     {
 
-        String messengerId = faculties.get(position).getMessengerID();
+        String messengerId;
+        if (TeacherOrStudent.equals("Teacher"))
+        {
+            messengerId = faculties.get(position).getMessengerID();
+        }
+        else
+        {
+            messengerId = students.get(position).getMessengerID();
+        }
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(messengerId.trim()));
         if(messengerId.trim().toLowerCase().startsWith("http")) {
@@ -219,5 +236,10 @@ public class PeopleRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }else{
             context.startActivity(Intent.createChooser(intent, "Choose browser"));
         }
+
+
     }
+
+
+
 }

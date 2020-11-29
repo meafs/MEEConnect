@@ -2,15 +2,19 @@ package com.fhb.meeconnect.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fhb.meeconnect.Adapters.PeopleRecyclerAdapter;
 import com.fhb.meeconnect.DataElements.Catagory;
@@ -24,6 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+
+import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 
 public class PeopleList extends AppCompatActivity {
 
@@ -132,6 +138,7 @@ public class PeopleList extends AppCompatActivity {
                     }
                     PeopleRecyclerAdapter adapter = new PeopleRecyclerAdapter(catagoryIndex, catagoryName, null, tempFaculty, context);
                     recyclerView.setAdapter(adapter);
+
                 }else{
                     ArrayList<Student> tempStudent = new ArrayList<>();
                     for(DataSnapshot student : dataSnapshot.getChildren()){
@@ -156,6 +163,7 @@ public class PeopleList extends AppCompatActivity {
                     }
                     PeopleRecyclerAdapter adapter = new PeopleRecyclerAdapter(catagoryIndex, catagoryName, tempStudent, null, context);
                     recyclerView.setAdapter(adapter);
+                    InitItemTouch(adapter,"Student");
                 }
                 refreshLayout.setRefreshing(false);
             }
@@ -188,4 +196,69 @@ public class PeopleList extends AppCompatActivity {
         ((LinearLayoutManager) recyclerView.getLayoutManager()).scrollToPosition(currentVisiblePosition);
         currentVisiblePosition = 0;
     }
+
+    public void InitItemTouch(PeopleRecyclerAdapter adapter, String TeacherOrStudent)
+    {
+        ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+
+                int position = viewHolder.getAdapterPosition();
+
+
+
+                if(direction == ItemTouchHelper.LEFT)
+                {
+                    adapter.SwipeToCall(TeacherOrStudent, position);
+                    recyclerView.setAdapter(adapter);
+
+                }
+
+                else if(direction == ItemTouchHelper.RIGHT)
+                {
+                    adapter.SwipeToMessage(TeacherOrStudent, position);
+                    recyclerView.setAdapter(adapter);
+                }
+
+
+
+
+                // Take action for the swiped item
+                Toast.makeText(context, "Hi", Toast.LENGTH_SHORT).show();
+            }
+
+
+            @Override
+            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+
+
+
+
+                new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                        .addSwipeLeftBackgroundColor(ContextCompat.getColor(context,R.color.green))
+                        .addSwipeRightBackgroundColor(ContextCompat.getColor(context,R.color.red))
+                        .addActionIcon(R.drawable.ic_android_black_24dp)
+                        .create()
+                        .decorate();
+
+
+
+
+
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+
+
+
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+    }
+
 }
