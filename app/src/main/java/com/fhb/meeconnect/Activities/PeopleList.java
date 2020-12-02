@@ -226,11 +226,6 @@ public class PeopleList extends AppCompatActivity {
                     adapter.notifyItemChanged(position);
                 }
 
-
-
-
-                // Take action for the swiped item
-                Toast.makeText(context, "Hi", Toast.LENGTH_SHORT).show();
             }
 
 

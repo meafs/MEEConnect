@@ -241,11 +241,6 @@ public class PeopleFragment extends Fragment {
                     adapter.notifyItemChanged(position);
                 }
 
-
-
-
-                // Take action for the swiped item
-                Toast.makeText(ctx, "Hi", Toast.LENGTH_SHORT).show();
             }
 
 
