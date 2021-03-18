@@ -48,9 +48,9 @@ public class PeopleRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     private String catagoryName;
     private int catagoryIndex;
 
-    public PeopleRecyclerAdapter(int catagoryIndex, String catagoryName, ArrayList<Student> students, ArrayList<Faculty> faculties, Context context) {
-        this.catagoryIndex = catagoryIndex;
-        this.catagoryName = catagoryName;
+    public PeopleRecyclerAdapter(int categoryIndex, String categoryName, ArrayList<Student> students, ArrayList<Faculty> faculties, Context context) {
+        this.catagoryIndex = categoryIndex;
+        this.catagoryName = categoryName;
         this.students = students;
         this.faculties = faculties;
         this.context = context;
@@ -157,6 +157,8 @@ public class PeopleRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                                 .fit()
                                 .centerCrop()
                                 .into(vhItem.photo);
+
+                        Log.d(TAG, "onError: " + e );
                     }
                 });
     }

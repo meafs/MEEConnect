@@ -5,7 +5,7 @@ android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.fhb.meeconnect"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 3
         versionName "3.0"
@@ -26,7 +26,11 @@ android {
 
 dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment:2.2.2'
+    implementation 'androidx.navigation:navigation-ui:2.2.2'
     def work_version = "2.4.0"
+
+    def latest_version = "0.3.0"
 
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -35,6 +39,13 @@ dependencies {
     implementation "com.andkulikov:transitionseverywhere:2.1.0"
     implementation 'com.roughike:bottom-bar:2.3.1'
     implementation 'com.rm:rmswitch:1.2.2'
+
+    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.6'
+    implementation "com.github.fornewid:neumorphism:$latest_version"
+    implementation 'com.github.ausboyue:CySwitch:1.1'
+    implementation 'com.llollox:androidtoggleswitch:2.0.1'
+    implementation 'com.nightonke:jellytogglebutton:1.0.2'
+    implementation 'com.github.GwonHyeok:StickySwitch:0.0.16'
 
 
     implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.3'

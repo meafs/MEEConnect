@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fhb.meeconnect.Adapters.PeopleRecyclerAdapter;
 import com.fhb.meeconnect.DataElements.Category;
@@ -57,7 +57,8 @@ public class PeopleFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+
+
     private String mParam1;
     private String mParam2;
 
@@ -87,7 +88,7 @@ public class PeopleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_people, container,false);
+        View view = inflater.inflate(R.layout.fragment_people, container,   false);
 
 
         listPosition = 1;
@@ -104,6 +105,9 @@ public class PeopleFragment extends Fragment {
         layoutManager = new LinearLayoutManager(ctx);
 
         recyclerView.setLayoutManager(layoutManager);
+
+        recyclerView.addItemDecoration(new DividerItemDecoration(ctx, DividerItemDecoration.VERTICAL));  // Adds a divider line between recycler view items
+
 
         catagoryName = mParam1;
         catagoryIndex = 0;
@@ -248,8 +252,6 @@ public class PeopleFragment extends Fragment {
             public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
 
 
-
-
                 new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
                         .addSwipeLeftBackgroundColor(ContextCompat.getColor(ctx, R.color.green))
                         .addSwipeRightBackgroundColor(ContextCompat.getColor(ctx, R.color.red))
@@ -257,10 +259,6 @@ public class PeopleFragment extends Fragment {
                         .addSwipeLeftActionIcon(R.drawable.ic_phone_black_24dp)
                         .create()
                         .decorate();
-
-
-
-
 
                 super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
 
@@ -272,10 +270,5 @@ public class PeopleFragment extends Fragment {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
-
-
-
-
-
 
 }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.TestActvity1">
+
+    <soup.neumorphism.NeumorphCardView
+
+
+        android:layout_height="140dp"
+
+        android:layout_width="match_parent"
+        style="@style/Widget.Neumorph.CardView"
+
+        app:neumorph_shadowElevation="6dp"
+        app:neumorph_shadowColorLight="@color/colorPrimaryDark"
+        app:neumorph_shadowColorDark="@color/gray"
+
+        app:neumorph_lightSource="leftTop"
+
+
+        app:neumorph_shapeType="flat"
+        app:neumorph_shapeAppearance="@style/CustomShapeAppearance"
+
+        app:neumorph_backgroundColor="@color/colorPrimaryDark"
+
+
+        app:neumorph_inset="12dp"
+        app:neumorph_insetStart="12dp"
+        app:neumorph_insetEnd="12dp"
+        app:neumorph_insetTop="12dp"
+        app:neumorph_insetBottom="12dp"
+
+        android:padding="12dp"  >
+
+
+
+        <soup.neumorphism.NeumorphTextView
+            android:id="@+id/textview"
+            style="@style/Widget.Neumorph.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Neumorphism"
+            android:textColor="@color/red"
+            android:textSize="30sp"
+            />
+
+
+
+    </soup.neumorphism.NeumorphCardView>
+
+
+
+
+
+</LinearLayout>

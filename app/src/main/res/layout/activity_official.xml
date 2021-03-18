@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Activities.OfficialActivity">
+
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
         android:alpha="0.7"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_back" />
 
 
@@ -21,16 +23,14 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/home_card"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:alpha="0.85"
-            app:cardElevation="15dp"
-            >
+            app:cardElevation="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,7 +39,7 @@
                 android:weightSum="6">
 
                 <ImageView
-                    android:id="@+id/home_settings"
+                    android:id="@+id/fragment_settings"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
@@ -78,25 +78,17 @@
         android:layout_height="wrap_content"
 
 
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintTop_toBottomOf="@+id/linear1" />
 
 
-
-
-    <com.roughike.bottombar.BottomBar
-        android:id="@+id/bottom_navigation"
+    <me.ibrahimsn.lib.SmoothBottomBar
+        android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        app:bb_tabXmlResource="@xml/bottombar_tabs"
-        app:layout_constraintBottom_toBottomOf="parent"
-         />
-
-
-
-
+        app:backgroundColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:menu="@menu/bottom_navigation_menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

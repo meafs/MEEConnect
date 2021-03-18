@@ -87,7 +87,7 @@ public class PeopleList extends AppCompatActivity {
         refreshPeoples();
 
         if(catagoryName.equals("Teacher") || catagoryName.equals("Staff")) {
-            title.setText(catagoryName+"s");
+            title.setText(catagoryName + "s");
         }else{
             title.setText(catagoryName);
         }

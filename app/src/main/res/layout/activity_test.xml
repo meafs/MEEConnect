@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.TestActivity"
+    >
+
+    <RadioGroup
+        android:checkedButton="@+id/offer"
+        android:id="@+id/toggle"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="1sp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="1sp"
+        android:background="@drawable/green_outline"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="1dp"
+            android:id="@+id/search"
+            android:background="@drawable/toggle_widget_background"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="Search"
+            android:textColor="#fff" />
+
+        <RadioButton
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:id="@+id/offer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/toggle_widget_background"
+            android:button="@null"
+            android:gravity="center"
+            android:text="Offers"
+            android:textColor="#fff" />
+    </RadioGroup>
+
+
+
+    <io.ghyeok.stickyswitch.widget.StickySwitch
+        android:id="@+id/sticky_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:ss_animationDuration="600"
+        app:ss_iconPadding="18dp"
+        app:ss_iconSize="18dp"
+        app:ss_leftText="Male"
+        app:ss_rightText="Female"
+        app:ss_selectedTextSize="14sp"
+        app:ss_sliderBackgroundColor="@color/green"
+        app:ss_switchColor="@color/red"
+        app:ss_textColor="#000"
+        app:ss_textSize="12sp"
+        app:ss_animationType="line"/>
+
+
+    <cn.icheny.view.CySwitch
+        android:id="@+id/cy_switch"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="70dp"
+        app:bgHeight="40dp"
+        app:bgWidth="100dp"
+
+        app:borderWidth="0dp"
+        app:isChecked="true"
+        app:sliderColorUnchecked="#FFFFFF"
+        app:sliderHeight="36dp"
+        app:sliderRadius="0dp"
+        app:sliderWidth="46dp"
+        app:textChecked="Checked"
+        app:textSize="15sp"
+        app:textUnchecked="Unchecked"
+        app:viewRadius="0dp" />
+
+</RelativeLayout>
